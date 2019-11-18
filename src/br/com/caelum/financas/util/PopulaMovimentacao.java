@@ -1,4 +1,4 @@
-package br.com.caelum.financas.teste;
+package br.com.caelum.financas.util;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -8,7 +8,6 @@ import javax.persistence.EntityManager;
 import br.com.caelum.financas.modelo.Conta;
 import br.com.caelum.financas.modelo.Movimentacao;
 import br.com.caelum.financas.modelo.TipoMovimentacao;
-import br.com.caelum.financas.util.JPAUtil;
 
 public class PopulaMovimentacao {
 	public static void main(String[] args) {
