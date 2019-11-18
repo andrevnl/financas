@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import br.com.caelum.financas.modelo.Conta;
 import br.com.caelum.financas.util.JPAUtil;
 
+//Buscar uma conta do banco de dados e alterar uma informação
 public class TesteBuscaConta {
 
 	public static void main(String[] args) {

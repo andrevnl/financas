@@ -5,21 +5,17 @@ import javax.persistence.EntityManager;
 import br.com.caelum.financas.modelo.Conta;
 import br.com.caelum.financas.util.JPAUtil;
 
-public class TesteConta {
+//Busca uma conta do banco para que fique no estado managed e então deleta ela do banco
+public class TesteDeletaConta {
 	
 	public static void main(String[] args) {
-		
 		Conta conta = new Conta();
-		conta.setTitular("Abencoado");
-		conta.setAgencia("789");
-		conta.setBanco("Caixa Economica");
-		conta.setNumero("456");
-		
+
 		EntityManager em = new JPAUtil().getEntityManager();
 		
 		em.getTransaction().begin();
-		em.persist(conta);
-		conta.setBanco("Bradesco");
+		conta = em.find(Conta.class, 1);
+		em.remove(conta);
 		em.getTransaction().commit();
 		em.close();
 	}

@@ -5,23 +5,22 @@ import javax.persistence.EntityManager;
 import br.com.caelum.financas.modelo.Conta;
 import br.com.caelum.financas.util.JPAUtil;
 
-public class TesteBuscaConta2 {
-
+//Inserir e logo depois alterar uma informação fazendo commit no final
+public class TesteCriaConta {
+	
 	public static void main(String[] args) {
+		Conta conta = new Conta();
+		conta.setTitular("Abencoado");
+		conta.setAgencia("789");
+		conta.setBanco("Caixa Economica");
+		conta.setNumero("456");
 		
 		EntityManager em = new JPAUtil().getEntityManager();
 		
 		em.getTransaction().begin();
-		
-		Conta conta = em.find(Conta.class, 1);
-		
-		conta.setTitular("João");
-		
-		System.out.println(conta.getTitular());
-		
+		em.persist(conta);
+		conta.setBanco("Bradesco");
 		em.getTransaction().commit();
-		
-
+		em.close();
 	}
-
 }
